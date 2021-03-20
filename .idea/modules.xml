@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/dubbo.iml" filepath="$PROJECT_DIR$/.idea/dubbo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-c/order-c.iml" filepath="$PROJECT_DIR$/order-c/order-c.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-common/order-common.iml" filepath="$PROJECT_DIR$/order-common/order-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-s/order-s.iml" filepath="$PROJECT_DIR$/order-s/order-s.iml" />
+    </modules>
+  </component>
+</project>
