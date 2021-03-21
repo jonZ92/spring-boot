@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class ConsumerListener {
     private Logger logger = LoggerFactory.getLogger(ConsumerListener.class);
 
-    @KafkaListener(id = "foo", topics = "kafka-boot")
+    @KafkaListener(id = "foo", topics = "testtopic")
     public void listen1(String foo) {
         logger.info("message content [{}]", foo);
     }

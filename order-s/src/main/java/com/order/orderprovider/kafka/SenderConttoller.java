@@ -2,7 +2,6 @@ package com.order.orderprovider.kafka;
 
 
 import org.slf4j.Logger;
-
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -11,7 +10,6 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -39,7 +37,7 @@ public class SenderConttoller {
     public String syncSendMessage() {
         for (int i = 0; i < 100; i++) {
             try {
-                template.send("kafka-boot", "0", "foo" + i).get();
+                template.send("testtopic", "0", "foo" + i).get();
             } catch (InterruptedException e) {
                 logger.error("sync send message fail [{}]", e.getMessage());
                 e.printStackTrace();
@@ -68,7 +66,7 @@ public class SenderConttoller {
              * </p>
              *
              */
-            ListenableFuture<SendResult<String, String>> send = template.send("kafka-boot", "0", "foo" + i);
+            ListenableFuture<SendResult<String, String>> send = template.send("testtopic", "0", "foo" + i);
             send.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
 
                 @Override
