@@ -37,7 +37,7 @@ public class MdbController {
         u.setAddress("中国");
         u.setNums("12345");
         u.setSex("man");
-        // mongoTemplate.save(u);
+        mongoTemplate.save(u);
         Query query=new Query(new Criteria());
         //Query query=new Query();
         User users = mongoTemplate.findOne(query, User.class);
@@ -48,6 +48,6 @@ public class MdbController {
         if (users==null){
             return "没查到";
         }
-        return users.toString();
+        return all.toString();
     }
 }
