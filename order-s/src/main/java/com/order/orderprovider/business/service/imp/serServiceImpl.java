@@ -11,7 +11,6 @@ import com.order.orderprovider.business.pageUtils.PageUtils;
 import com.order.orderprovider.business.pageUtils.Pages;
 import com.order.orderprovider.business.pojo.User;
 import com.order.orderprovider.business.service.UserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,11 +23,6 @@ public class serServiceImpl implements UserService {
     @Autowired
     private SysUserMapper sysUserMapper;
 
-
-    @Override
-    public List<User> selectPage(User user) {
-        return null;
-    }
 
     @Override
     public PageResult findPage(Integer pageNum, Integer pageSize, User user) {

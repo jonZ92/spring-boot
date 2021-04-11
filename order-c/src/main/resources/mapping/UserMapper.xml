@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.order.orderprovider.business.dao.UserDao">
+<mapper namespace="com.order.orderconsumer.business.dao.UserDao">
 
 
     <insert id="insertUser" parameterType="com.order.ordercommon.User">
         insert into user() values (#{id},#{name},#{age})
     </insert>
+    <select id="counts" resultType="Integer">
+        select count(1) from user
 
+    </select>
 </mapper>

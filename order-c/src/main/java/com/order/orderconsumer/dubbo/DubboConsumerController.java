@@ -6,10 +6,8 @@ import com.order.orderprovider.dubbo.OrderService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 public class DubboConsumerController {
-
     @Reference(version = "1.0.0")
     private OrderService orderService;
 
