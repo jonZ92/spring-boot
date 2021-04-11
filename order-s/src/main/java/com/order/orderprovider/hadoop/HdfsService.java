@@ -39,6 +39,21 @@ public class HdfsService {
     private static final int bufferSize = 1024 * 1024 * 64;
 
     /**
+     * Java中该注解的说明：@PostConstruct该注解被用来修饰一个非静态的void（）方法。
+     * 被@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器执行一次。
+     * PostConstruct在构造函数之后执行，init（）方法之前执行。
+     */
+    @PostConstruct
+    public void getPath() {
+        hdfsPath = this.path;
+    }
+
+    @PostConstruct
+    public void getName() {
+        hdfsName = this.username;
+    }
+
+    /**
      * 获取HDFS配置信息
      * @return
      */
@@ -390,15 +405,7 @@ public class HdfsService {
         return fs.getFileBlockLocations(fileStatus, 0, fileStatus.getLen());
     }
 
-    @PostConstruct
-    public void getPath() {
-        hdfsPath = this.path;
-    }
 
-    @PostConstruct
-    public void getName() {
-        hdfsName = this.username;
-    }
 
     public static String getHdfsPath() {
         return hdfsPath;
