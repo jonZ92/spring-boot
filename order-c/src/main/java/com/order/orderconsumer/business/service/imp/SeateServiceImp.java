@@ -25,7 +25,7 @@ public class SeateServiceImp implements SeateService {
      * 分布式事物
      */
     @Override
-    @GlobalTransactional(name = "fsp-create-orfer",rollbackFor = Exception.class)
+//    @GlobalTransactional(name = "fsp-create-orfer",rollbackFor = Exception.class)
     public void inserts(User user) {
         Integer i=userDao.counts().intValue();
         user.setId(i+1);
