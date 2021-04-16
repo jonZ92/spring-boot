@@ -8,4 +8,7 @@
         insert into user() values (#{id},#{name},#{age})
     </insert>
 
+
+
+
 </mapper>

@@ -1,6 +1,7 @@
 package com.order.orderprovider.business.pageUtils;
 
 import com.github.pagehelper.PageInfo;
+import com.order.orderprovider.business.pojo.User;
 
 
 public class PageUtils  {
@@ -11,7 +12,7 @@ public class PageUtils  {
      * @param pageInfo
      * @return
      */
-    public static PageResult getPageResult(PageInfo<?> pageInfo) {
+    public static PageResult getPageResult( PageInfo<?> pageInfo) {
         PageResult pageResult = new PageResult();
         pageResult.setPageNum(pageInfo.getPageNum());
         pageResult.setPageSize(pageInfo.getPageSize());

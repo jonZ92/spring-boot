@@ -14,6 +14,7 @@ import com.order.orderprovider.business.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -24,8 +25,13 @@ public class serServiceImpl implements UserService {
     private SysUserMapper sysUserMapper;
 
 
+
+
+
     @Override
     public PageResult findPage(Integer pageNum, Integer pageSize, User user) {
+
+        sysUserMapper.deleteData(new HashMap(){{put("phone","1");}});
         return PageUtils.getPageResult(new Pages<User>() {
             @Override
             public PageInfo<User> getPageInfo(Integer pageNum, Integer pageSize, User user) {
