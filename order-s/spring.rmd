@@ -1,0 +1,35 @@
+
+
+
+
+@Repository   rɪˈpɑːzətɔːri 标注一个DAO组件类。
+
+
+@Component    kəmˈpoʊnənt  标准一个普通的spring Bean类。
+
+
+@Autowired
+
+
+@Controller  标注一个控制器组件类
+
+@Service 标注一个业务逻辑组件类
+
+
+@Configuration kənˌfɪɡjəˈreɪʃn  Java 配置支持的核心就是@Configuration 注解的类。
+这些类主要包括 @Bean 注解的方法来为 Spring 的 IoC 容器管理的对象定义实例，配置和初始化逻辑。
+
+@Bean 注解扮演了和元素相同的角色
+
+
+@Transactional  trænˈzækʃən(ə)l
+
+
+@Async
+
+MVC
+@RequestMapping
+@PathVariable  ˈveəriəbl
+@PathVariable
+@requestParam
+@ResponseBody

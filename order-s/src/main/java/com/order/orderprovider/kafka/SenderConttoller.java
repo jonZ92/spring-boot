@@ -35,9 +35,15 @@ public class SenderConttoller {
      */
     @RequestMapping("syncSendMessage")
     public String syncSendMessage() {
-        for (int i = 0; i < 100; i++) {
+        int num=0;
+        for (int i = 0; i < 10000; i++) {
             try {
-                template.send("testtopic", "0", "foo" + i).get();
+                if (num<8){
+                    template.send("testtopic", num, "0", "foo" + i).get();
+                    num+=1;
+                  }else {
+                    num=0;
+                }
             } catch (InterruptedException e) {
                 logger.error("sync send message fail [{}]", e.getMessage());
                 e.printStackTrace();

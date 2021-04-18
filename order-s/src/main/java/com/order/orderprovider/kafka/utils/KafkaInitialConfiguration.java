@@ -18,7 +18,6 @@ public class KafkaInitialConfiguration {
     // 创建一个名为testtopic的Topic并设置分区数为8，分区副本数为2
 //    @Bean
 //    public NewTopic initialTopic() {
-//        System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 //        return new NewTopic("testtopic",8, (short) 2 );
 //    }
 //
