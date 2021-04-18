@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.order</groupId>
     <artifactId>order-c</artifactId>
+    <packaging>jar</packaging>
     <version>0.0.1-SNAPSHOT</version>
     <name>order-c</name>
     <description>Demo project for Spring Boot</description>
@@ -104,12 +105,6 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.order</groupId>
-            <artifactId>order-s</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
         <!--  <dependency>
               <groupId>io.seata</groupId>
               <artifactId>seata-spring-boot-starter</artifactId>
@@ -139,4 +134,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

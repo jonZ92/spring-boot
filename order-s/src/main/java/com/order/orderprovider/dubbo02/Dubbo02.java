@@ -2,7 +2,6 @@ package com.order.orderprovider.dubbo02;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.order.ordercommon.service.DubboJ;
-import org.hibernate.annotations.Cache;
 import org.springframework.stereotype.Component;
 
 @Component
