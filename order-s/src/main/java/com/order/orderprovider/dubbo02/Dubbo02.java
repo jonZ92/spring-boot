@@ -1,5 +1,6 @@
 package com.order.orderprovider.dubbo02;
 
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.order.ordercommon.service.DubboJ;
 import org.springframework.stereotype.Component;
@@ -11,4 +12,5 @@ public class Dubbo02 implements DubboJ {
     public String getDubbo(String str) {
         return str;
     }
+
 }

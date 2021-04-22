@@ -1,15 +1,15 @@
 package com.order.orderprovider.business.controller;
 
 
+import com.mongodb.gridfs.GridFSInputFile;
 import com.order.orderprovider.business.pojo.User;
+
+import com.order.orderprovider.business.service.imp.UserServiceImp;
 import com.order.orderprovider.business.service.imp.serServiceImpl;
 import com.order.orderprovider.business.pageUtils.PageResult;
-import com.order.orderprovider.hadoop.HdfsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -26,12 +26,32 @@ public class TestCon {
     @Autowired
     private serServiceImpl sx;
 
+    @Autowired
+    private UserServiceImp userServiceImp;
+
+
     @GetMapping(value = "/sc/{pageNum}/{pageSize}")
     @ResponseBody
     public PageResult test(HttpServletResponse response, HttpServletRequest request, @PathVariable(name = "pageNum") Integer pageNum, @PathVariable(name = "pageSize") Integer pageSize, @RequestBody(required = false) User user) {
         response.setHeader("Set-Cookie","ssssssssssadasdasdad");
 
         return sx.findPage(pageNum, pageSize, user);
+    }
+
+
+    @GetMapping("/insa")
+    @ResponseBody
+    public String gets(){
+
+
+
+
+        com.order.ordercommon.User u=new  com.order.ordercommon.User();
+        u.setAge(1023);
+        u.setName("sdas");
+        u.setId(14245);
+        userServiceImp.insertInto(u);
+        return "sue";
     }
 
 

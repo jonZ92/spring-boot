@@ -1,6 +1,7 @@
 package com.order.orderprovider.kafka;
 
 
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,8 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.util.concurrent.ExecutionException;
+
+import java.util.concurrent.*;
 
 /**
  * @ClassName SenderConttoller
@@ -35,25 +37,25 @@ public class SenderConttoller {
      * @throws InterruptedException
      */
     @RequestMapping("syncSendMessage")
-    @Async
     public String syncSendMessage() {
-        int num=0;
-        for (int i = 0; i < 100000; i++) {
-            try {
-                if (num<8){
-                    template.send("testtopic", num, "0", "foo" + i).get();
-                    num+=1;
-                  }else {
-                    num=0;
-                }
-            } catch (InterruptedException e) {
-                logger.error("sync send message fail [{}]", e.getMessage());
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                logger.error("sync send message fail [{}]", e.getMessage());
-                e.printStackTrace();
-            }
-        }
+//        int num=0;
+//        for (int i = 0; i < 100000; i++) {
+//            try {
+//                if (num<8){
+//                    template.send("testtopic", num, "0", "foo" + i).get();
+//                    num+=1;
+//                  }else {
+//                    num=0;
+//                }
+//            } catch (InterruptedException e) {
+//                logger.error("sync send message fail [{}]", e.getMessage());
+//                e.printStackTrace();
+//            } catch (ExecutionException e) {
+//                logger.error("sync send message fail [{}]", e.getMessage());
+//                e.printStackTrace();
+//            }
+//        }
+        sendMsg(template);
         return "success";
     }
 
@@ -92,6 +94,31 @@ public class SenderConttoller {
         }
         return "success";
     }
+
+
+    private void sendMsg(KafkaTemplate<String, String> template){
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(4,6,1000, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<Runnable>(),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy());
+        for (long i=0;i<100000;i++) {
+            final  long  j=  i;
+            poolExecutor.execute(new Runnable() {
+                @SneakyThrows
+                @Override
+                public void run() {
+                    template.send("testtopic", 0, "0", "foo" +  j).get();
+                }
+            });
+        }
+        poolExecutor.shutdownNow();
+    }
+
+
+
+
+
+
 
 
 

@@ -1,7 +1,6 @@
 package com.order.orderconsumer.dubbo;
 
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.order.ordercommon.UserInfo;
 import com.order.ordercommon.service.DubboJ;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
