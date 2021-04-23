@@ -60,7 +60,6 @@ public class MdbController {
     @GetMapping("/files")
     @ResponseBody
     public String saveFile()throws Exception{
-
         File file = new File("/home/jon/soft/unnamed.jpg");
         FileInputStream in = new FileInputStream(file);
         long size=in.available();
@@ -74,7 +73,6 @@ public class MdbController {
         mong0s.setSize(size);
         mongoTemplate.save(mong0s);
         in.close();
-        System.out.println("xxxxxxxxxxxxxxxxxxx");
         return "xxxxxxx";
     }
     @GetMapping("/getfiles")

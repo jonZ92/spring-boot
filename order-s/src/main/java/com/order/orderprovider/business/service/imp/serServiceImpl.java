@@ -31,7 +31,7 @@ public class serServiceImpl implements UserService {
     @Override
     public PageResult findPage(Integer pageNum, Integer pageSize, User user) {
 
-        sysUserMapper.deleteData(new HashMap(){{put("phone","1");}});
+        //sysUserMapper.deleteData(new HashMap(){{put("phone","1");}});
         return PageUtils.getPageResult(new Pages<User>() {
             @Override
             public PageInfo<User> getPageInfo(Integer pageNum, Integer pageSize, User user) {
