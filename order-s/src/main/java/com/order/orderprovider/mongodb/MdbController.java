@@ -74,6 +74,7 @@ public class MdbController {
         mong0s.setSize(size);
         mongoTemplate.save(mong0s);
         in.close();
+        System.out.println("xxxxxxxxxxxxxxxxxxx");
         return "xxxxxxx";
     }
     @GetMapping("/getfiles")
@@ -84,7 +85,6 @@ public class MdbController {
         Mong0s one = mongoTemplate.findOne(query, Mong0s.class);
         byte [] bytes=new byte[(int)one.getSize()];
         bytes=one.getContent().getData();
-
         FileOutputStream out = new FileOutputStream("/home/jon/soft/xxxx.jpg");
         out.write(bytes);
         out.close();
