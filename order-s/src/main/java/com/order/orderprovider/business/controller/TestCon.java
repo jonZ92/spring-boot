@@ -79,15 +79,15 @@ public class TestCon {
 
 
     @GetMapping("/dowm")
-    public void downTest(HttpServletResponse response) throws Exception {
-        InputStream inputStream = null;
+    public void downTest(HttpServletResponse response) throws Exception{
             File file = new File("/home/jon/soft/撒看你的阿萨德了.zip");
-            inputStream = new FileInputStream(file);
-            String filename = "撒看你的阿萨德了.zip";
-            filename = new String(filename.getBytes("GB2312"), StandardCharsets.ISO_8859_1);
-            response.setContentType("application/octet-stream");
-            // 下载文件能正常显示中文
-            response.setHeader("Content-Disposition", "attachment;filename=" + filename);
-            IOUtils.copy(inputStream,response.getOutputStream());
+            try(InputStream inputStream  = new FileInputStream(file)){
+                String filename = "撒看你的阿萨德了.zip";
+                filename = new String(filename.getBytes("GB2312"), StandardCharsets.ISO_8859_1);
+                response.setContentType("application/octet-stream");
+                // 下载文件能正常显示中文
+                response.setHeader("Content-Disposition", "attachment;filename=" + filename);
+                IOUtils.copy(inputStream,response.getOutputStream());
+            }
     }
 }
